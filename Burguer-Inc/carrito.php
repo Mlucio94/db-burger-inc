@@ -27,6 +27,7 @@
         $resu = mysqli_query($conn,$sql);
         return $resu;
     }
+    $_SESSION['monto']=0;
 
 ?>
 <!doctype html>
@@ -38,7 +39,7 @@
     <div class="container-sm text-center bg-meal main-card mt-4 p-4">
       <img src="./images/name-w.png" alt="...">
       <form class="text-end" method="POST"><button type="submit" class="btn btn-light btn-sm" name="confirmar" >Terminar pedido</button></form>
-      <p> Monto Total = $ <? echo $_SESSION['monto']; ?></p>
+      
     
     <?php if(isset($_SESSION['item'])){?>
         <p>Hamburguesas</p>
@@ -63,7 +64,7 @@
             }?>
                 <td></td>
                 <td></td>
-                <td><p>$ <?php echo $precio; $_SESSION['monto']=$_SESSION['monto']+$precio;?> </p></td>  
+                <td><p>$ <?php echo $precio; $_SESSION['monto']+=$precio;?> </p></td>  
             </tbody>
             </table>
             <?php
@@ -90,7 +91,7 @@
             }?>
                 <td></td>
                 <td></td>
-                <td><p>$ <?php echo $precio; $_SESSION['monto']=$_SESSION['monto']+$precio;?> </p></td>  
+                <td><p>$ <?php echo $precio; $_SESSION['monto']+=$precio;?> </p></td>  
             </tbody>
             </table>
             <?php
@@ -116,12 +117,12 @@
             }?>
                 <td></td>
                 <td></td>
-                <td><p>$ <?php echo $precio; $_SESSION['monto']=$_SESSION['monto']+$precio;?> </p></td>  
+                <td><p>$ <?php echo $precio; $_SESSION['monto'] +=$precio;?> </p></td>  
             </tbody>
             </table>
             <?php
     } ?>
-    <p> Monto Total = $ <? echo $_SESSION['monto']; ?></p>
+    <p> Monto Total = $ <?php echo $_SESSION['monto']; ?></p>
     </div>
   </body>
 </html>
